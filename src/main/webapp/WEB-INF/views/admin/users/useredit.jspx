@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:form="http://www.springframework.org/tags/form"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="label_user_new" var="labelUserNew"/>
+    <spring:message code="label_user_update" var="labelUserUpdate"/>
+    <spring:message code="label_user_userid" var="labelUserUserID"/>
+    <spring:message code="label_user_usercode" var="labelUserUserCode"/>
+    <spring:message code="label_user_username" var="labelUserUserName"/>
+    <spring:message code="label_user_password" var="labelUserPassword"/>
+    <spring:message code="label_user_email" var="labelUserEmail"/>
+    <spring:message code="label_user_mobile" var="labelMobile"/>
+    <spring:message code="label_user_description" var="labelDescription"/>
+    <spring:message code="label_user_active" var="labelActive"/>
+    <spring:message code="label_user_create" var="labelCreate"/>
+    <spring:message code="label_user_createby" var="labelCreateBy"/>
+    <spring:message code="label_user_update" var="labelUpdate"/>
+    <spring:message code="label_user_updateby" var="labelUpdateBy"/>
+    <spring:message code="label_user_avatar" var="labelAvatar"/>
+    <spring:message code="label_user_password" var="labelUserPassword"/>
+    <spring:message code="label_user_confirm_password" var="labelUserConfirm"/>
+    <spring:message code="date_format_pattern" var="dateFormatPattern"/>
+    <spring:message code="label_user_edituser" var="labelEditUser"/>
+    
+    <spring:eval expression="user.userid == null ? labelUserNew:labelUserUpdate" var="formTitle"/>       
+	<script type="text/javascript">
+    $(function(){        
+        CKEDITOR.replace( 'userDescription',
+      		{	
+      			width:650,
+        		height:250,
+      			toolbar :
+      			[
+					{ name: 'document', items : [ 'NewPage','Preview' ] },
+					{ name: 'clipboard', items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
+					{ name: 'editing', items : [ 'Find','Replace','-','SelectAll','-','Scayt' ] },
+					{ name: 'insert', items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'
+					         ,'Iframe' ] },
+					        '/',
+					{ name: 'styles', items : [ 'Styles','Format' ] },
+					{ name: 'basicstyles', items : [ 'Bold','Italic','Strike','-','RemoveFormat' ] },
+					{ name: 'paragraph', items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote' ] },
+					{ name: 'links', items : [ 'Link','Unlink','Anchor' ] },
+					{ name: 'tools', items : [ 'Maximize','-','About' ] },					
+      				
+      			]
+      			
+      		});
+    });
+    </script>
+    <h1>${formTitle}</h1>
+
+    <div id="userUpdate">
+    <form:form modelAttribute="user" id="userUpdateForm" method="post">
+
+        <c:if test="${not empty message}">
+            <div id="message" class="${message.type}">${message.message}</div>
+        </c:if>
+
+        <form:label path="username">
+            ${labelUserUserName}* 
+        </form:label>
+        <form:input path="username" />
+        <div>
+            <form:errors path="username" cssClass="error" />
+        </div>
+        <p/>
+
+        <form:label path="password">
+            ${labelUserPassword}* 
+        </form:label>
+        <form:input path="password" type="password" value=""/>
+        <div>
+            <form:errors path="password" cssClass="error" />
+        </div>
+        <p/>    
+		
+        <form:label path="email">
+            ${labelUserEmail}* 
+        </form:label>
+        <form:input path="email" />
+        <div>
+            <form:errors path="email" cssClass="error" />
+        </div>
+        <p/>
+        
+        <form:label path="mobile">
+            ${labelMobile}* 
+        </form:label>
+        <form:input path="mobile" />
+        <div>
+            <form:errors path="Mobile" cssClass="error" />
+        </div>
+        <p/>
+        
+        <form:label path="description">
+            ${labelDescription}
+        </form:label>
+        <form:textarea cols="60" rows="8" path="description" id="userDescription"/>
+        <div>
+            <form:errors path="description" cssClass="error" />
+        </div>        
+        <p/>    
+           
+        <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+            <span class="ui-button-text">Save</span>
+        </button> 
+        <button type="reset" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+            <span class="ui-button-text">Reset</span>
+        </button>           
+                      
+    </form:form>   
+    </div>
+
+</div>

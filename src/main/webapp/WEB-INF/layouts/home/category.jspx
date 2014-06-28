@@ -1,0 +1,73 @@
+<div class="detail-page" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:tags="urn:jsptagdir:/WEB-INF/tags">
+	
+	<spring:url value="/categories/detail?id=" var="detailcategoryurl" />
+	
+		<div class="left-navi-detail">
+	        <div class="top-navi"><jsp:text /></div>
+	        <div class="middle-navi">
+	            <div class="navi-content" id="treenavigation">
+	                <jsp:text />
+	            </div>
+	        </div>
+	        <div class="bottom-navi"><jsp:text /></div>
+        </div>
+        
+        <div class="container-detail-block">
+        	<tiles:insertAttribute name="categorybody" />
+        </div>
+        
+		<div class="share-social-block">
+           <jsp:text />    
+        </div>
+	
+	<script type="text/javascript">
+		$(function() {
+			$("#treenavigation")
+					.dynatree(
+							{
+								selectMode : 3,
+								fx: { height: "toggle", duration: 600 },
+								initAjax : {
+									url : "${pageContext.request.contextPath}/categories/getTreeCatetories?id=${param.id}"
+								},
+								onActivate : function(node) {
+									document.location.href = "${detailcategoryurl}" + node.data.key;
+								},
+								onSelect : function(select, node) {
+									var selKeys = $.map(node.tree
+											.getSelectedNodes(),
+											function(node) {
+												return node.data.key;
+											});
+
+									// list note, use for to get
+									var selRootNodes = node.tree
+											.getSelectedNodes(true);
+
+									//  list key, use for to get
+									var selRootKeys = $.map(selRootNodes,
+											function(node) {
+												return node.data.key;
+											});
+								},
+								onDblClick : function(node, event) {
+									node.toggleSelect();
+								},
+								onKeydown : function(node, event) {
+									if (event.which == 32) {
+										node.toggleSelect();
+										return false;
+									}
+								},
+								cookieId : "dynatree-Cb2",
+								idPrefix : "dynatree-Cb2-",
+								
+							});
+		});
+	</script>
+</div>

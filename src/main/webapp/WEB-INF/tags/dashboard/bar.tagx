@@ -1,0 +1,31 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+  <jsp:output omit-xml-declaration="yes"/>
+  
+  <jsp:directive.attribute name="barType" type="java.lang.Integer" required="true" rtexprvalue="true" description="Bar's type"/>
+  <jsp:directive.attribute name="title" type="java.lang.String" required="false" rtexprvalue="true" description="Bar's title" />
+  <jsp:directive.attribute name="titleMessageCode" type="java.lang.String" required="false" rtexprvalue="true" description="Message code for Bar's title" />
+
+  <c:if test="${empty barType}">
+  	<c:set value="1" var="barType"/>
+  </c:if>
+  
+  <c:if test="${not empty titleMessageCode}">
+  	<spring:message code="dashboard_${titleMessageCode}_label" var="title"/>
+  </c:if>
+
+  <div class="dashboardBar dashboardPos${barType}" onmouseover="dashboardBarMouseOver(this);" onmouseout="dashboardBarMouseOut(this);">
+     <div class="c-elements-bg title">
+     	<label>${title}</label>
+     </div>
+     <div class="categoryContainer">
+    	<div class="itemBlock">
+			<jsp:doBody />
+		</div>
+    </div>
+    <div class="c-elements-bg scrollButton">
+		<div class="scrollButtonLeft" onclick="dashboardRightArrowClick(this);"><a href="javascript:;">&gt;&gt;</a></div>
+		<div class="scrollButtonRight" onclick="dashboardLeftArrowClick(this);"><a href="javascript:;">&lt;&lt;</a></div>
+	</div>
+  </div>
+  
+</jsp:root>

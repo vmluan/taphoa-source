@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<definition name="default" template="/WEB-INF/layouts/admin/default.jspx">
+		<put-attribute name="header"
+			value="/WEB-INF/views/admin/common/header.jspx" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/admin/common/menu.jspx" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/admin/common/footer.jspx" />
+	</definition>
+	<definition name="login" template="/WEB-INF/layouts/admin/login.jspx" />
+	<definition name="security/loginfail" extends="login" />
+
+	<definition name="home" template="/WEB-INF/layouts/home/home.jspx">
+		<put-attribute name="header" value="header" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/home/common/body.jspx" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/home/common/footer.jspx" />
+	</definition>
+
+	<definition name="header" template="/WEB-INF/views/taphoa/header.jspx">
+	</definition>
+
+
+	<definition extends="home" name="stories">
+		<put-attribute name="body" value="/WEB-INF/layout/admin/story.jspx" />
+	</definition>
+	<definition extends="default" name="dashboard">
+		<put-attribute name="body" value="/WEB-INF/views/dashboard.jspx" />
+	</definition>
+	
+<!-- 	<definition name="taphoa" template="/WEB-INF/layouts/taphoa/taphoa_template.jspx"> -->
+<!-- 		<put-attribute name="header" value="header" /> -->
+<!-- 		<put-attribute name="body" -->
+<!-- 			value="/WEB-INF/views/taphoa/taphoa.jspx" /> -->
+<!-- 		<put-attribute name="footer" -->
+<!-- 			value="/WEB-INF/views/taphoa/footer.jspx" />			 -->
+<!-- 	</definition> -->
+	
+	<definition name="taphoa" template="/WEB-INF/layouts/taphoa/taphoa_original.jspx">			
+	</definition>	
+</tiles-definitions>
+
+

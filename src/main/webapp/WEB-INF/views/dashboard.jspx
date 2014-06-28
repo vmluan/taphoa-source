@@ -1,0 +1,32 @@
+<div class="dashboardWrapper" version="2.0"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:corvus="urn:jsptagdir:/WEB-INF/tags/corvus"
+	xmlns:dashboard="urn:jsptagdir:/WEB-INF/tags/dashboard"
+	xmlns:f="http://helveta.com/corvus/util/functions"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:sec="http://www.springframework.org/security/tags">
+
+
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<spring:message var="app_name" code="application_name" text = "coffee MVC"
+		htmlEscape="false" />
+	<spring:message var="title" code="welcome_titlepane" text = "Welcome to coffee management system"
+		arguments="${app_name}" htmlEscape="false" />
+
+	<dashboard:bar titleMessageCode="khu_pt" barType="1">
+				<dashboard:barElement
+					descriptionTitleMessageCode="new_table"
+					descriptionContentMessageCode="new_table"
+					descriptionTitleMessageName="Ban Moi"
+					descriptionContentMessageName= "click vao day de tao ban moi"
+					imageLink="/resources/images/dashboard/certified_product_stock_level.png"
+					actionLink='/coffeetables/custom' subCategoryGroupId="1"
+					categoryGroupType="1" />
+
+
+
+	</dashboard:bar>
+
+</div>

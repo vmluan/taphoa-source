@@ -1,0 +1,111 @@
+		<div class="container">
+
+			<!-- Main component for a primary marketing message or call to action -->
+			<div class="tap-hoa-main-div" id="thong-tin-khach-hang">
+
+				<div>
+					<div class="form-group col-xs-6 col-sm-4">
+						<label for="name">Thong Tin KH</label> <input type="text"
+							class="form-control" id="ten-khach-hang" placeholder="Ten KH" />
+					</div>
+					<div class="form-group col-xs-6 col-sm-4">
+						<label for="name">Ma KH</label> <input type="text"
+							class="form-control" id="ma-khach-hang" placeholder="Ma KH" />
+					</div>
+					<div class="col-xs-6 col-sm-4">
+						<div>
+							<label class="khach-hang-no"> No </label>
+						</div>
+						<input type="checkbox" class="khach-hang-no" id="no-checkbox" />
+					</div>
+					<br /> <br />
+				</div>
+
+			</div>
+			<!-- /thong tin khach hang -->
+
+			<div class="tap-hoa-main-div" id="san-pham">
+
+
+				<div class="form-group col-md-3">
+					<label for="name">Ma san pham</label> <input type="text"
+						class="form-control" id="ten-khach-hang" placeholder="Ten KH" />
+				</div>
+				<div class="form-group col-md-2">
+					<label for="name">Ten san pham</label> <input type="text"
+						class="form-control" id="ten_san_pham" placeholder="Nhap ten SP " />
+				</div>
+				<div class="form-group col-md-2">
+					<label for="name">So luong</label> <input type="text"
+						class="form-control" id="ma-khach-hang" placeholder="Ma KH" />
+				</div>
+				<div class="form-group col-md-2">
+					<label for="name">Gia</label> <input type="text"
+						class="form-control" id="gia" readonly="true" />
+
+
+				</div>
+				<div class="form-group col-md-2">
+					<label for="name">Giam gia</label> <input type="text"
+						class="form-control" id="giam_gia" readonly="true" />
+				</div>
+				<div class="form-group col-md-1">
+					<label for="name"> </label>
+					<p>
+						<a class="btn btn-lg btn-primary" href="#" role="button">OK</a>
+					</p>
+				</div>
+
+				<br /> <br />
+
+
+			</div>
+			<!-- /San Pham -->
+
+
+
+			<!-- Main component for a primary marketing message or call to action -->
+			<!--div class="jumbotron" -->
+			<div class="tap-hoa-main-div">
+				<div id="luan" class="luan">
+					<label>Danh sach san pham chi tiet</label>
+					<div id="jqxWidget" class="ban-le-grid">
+						<div id="jqxgrid"></div>
+					</div>
+				</div>
+				<br /> <br />
+
+
+			</div>
+
+			<div id="thanh-toan" class="tao-hoa-thanh-toan">
+
+				<div class="col-xs-6 col-sm-4">
+					<label for="name">Tien khach dua</label> <input type="number"
+						class="form-control" id="tien-khach-dua" />
+				</div>
+
+				<div class="col-xs-6 col-sm-4">
+					<label for="name">Thoi lai</label> <input type="number"
+						class="form-control" id="tien-thoi-lai" readonly="true" />
+				</div>
+
+				<div class="col-xs-6 col-sm-2" align="right">
+					<a class="btn btn-lg btn-success tap-hoa-done-button" href="#"
+						role="button"> Xong </a>
+
+				</div>
+
+				<div class="col-xs-6 col-sm-2" align="right">
+
+					<p>
+						<a class="btn btn-lg btn-primary" href="#" role="button"> In </a>
+					</p>
+				</div>
+
+			</div>
+
+
+
+		</div>
+		<!-- /container -->

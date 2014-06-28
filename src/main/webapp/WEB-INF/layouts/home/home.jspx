@@ -1,0 +1,62 @@
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:spring="http://www.springframework.org/tags">
+
+<jsp:output doctype-root-element="HTML"
+	doctype-system="about:legacy-compat"></jsp:output>
+
+<jsp:directive.page contentType="text/html;charset=UTF-8"></jsp:directive.page>
+<jsp:directive.page pageEncoding="UTF-8"></jsp:directive.page>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />
+
+	<title>Annual Report Interactive</title>
+	<spring:url value="/resources/scripts" var="script" />
+    <spring:url value="/resources/styles/" var="styles" />
+    
+	<link rel="shortcut icon" href="${pageContext.request.contextPath}/styles/home/images/icon.ico" />
+
+	<!-- jQuery -->
+    <script src="${script}/jquery/jquery-1.10.2.js" type="text/javascript"><jsp:text/></script>
+    <script src="${script}/jquery/jquery.cookie.js" type="text/javascript"><jsp:text/></script>
+    
+    <!-- JQuery UI -->
+    <script src="${script}/jqueryui/ui.tabs.paging.js" type="text/javascript" ><jsp:text/></script>
+    <script src="${script}/jqueryui/jquery-ui-1.10.3.js" type="text/javascript"><jsp:text/></script>   
+    
+    <link href="${styles}/jqueryui/jquery-ui-1.10.3.css" rel="stylesheet" type="text/css" media="screen" />
+    
+ 	<!-- Combo Tree -->
+	<link href="${styles}/easyui/easyui.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- Dynamic Tree -->
+	<script src="${script}/dynatree/jquery.dynatree.js" type="text/javascript"><jsp:text/></script>
+    <script src="${script}/dynatree/treehelper.js" type="text/javascript"><jsp:text/></script>
+    <link href="${styles}/dynatree/ui.dynatree.css" rel="stylesheet" type="text/css" media="screen" />
+
+	<!-- Site Map -->
+	<script src="${script}/control.js" type="text/javascript"><jsp:text/></script>
+	
+    <!-- Bootrap -->
+    <link href="${styles}/custom-theme/bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<!-- JQuery CSS Home -->
+	<link href="${styles}/home/css/global.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="${styles}/home/css/fonts.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="${styles}/home/css/customizeUI.css" rel="stylesheet" type="text/css" media="screen" />
+
+</head>
+<body>
+	<div id="container">
+        <tiles:insertAttribute name="header" ignore="true" />
+        <div id="body-container" class="clearfix">
+			<tiles:insertAttribute name="body" />
+		</div>
+	    <tiles:insertAttribute name="footer" ignore="true"/>
+	</div>
+</body>
+</html>

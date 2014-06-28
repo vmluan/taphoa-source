@@ -1,0 +1,51 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+  <jsp:output omit-xml-declaration="yes"/>
+  
+  <jsp:directive.attribute name="imageLink" type="java.lang.String" required="true" rtexprvalue="true" description="Image's link" />
+  <jsp:directive.attribute name="descriptionTitle" type="java.lang.String" required="false" rtexprvalue="true" description="Description title" />
+  <jsp:directive.attribute name="descriptionTitleMessageCode" type="java.lang.String" required="false" rtexprvalue="true" description="Description title message code" />
+  <jsp:directive.attribute name="descriptionContent" type="java.lang.String" required="false" rtexprvalue="true" description="Description content" />
+  <jsp:directive.attribute name="descriptionContentMessageCode" type="java.lang.String" required="false" rtexprvalue="true" description="Description content message code" />
+  <jsp:directive.attribute name="categoryGroupType" type="java.lang.String" required="false" rtexprvalue="true" description="The color in the left" />
+  <jsp:directive.attribute name="actionLink" type="java.lang.String" required="false" rtexprvalue="true" description="Element's action link" />
+  <jsp:directive.attribute name="clickActionScript" type="java.lang.String" required="false" rtexprvalue="true" description="Java script to call when click this element" />
+  <jsp:directive.attribute name="subCategoryGroupId" type="java.lang.String" required="false" rtexprvalue="true" description="Element's group" />
+  <jsp:directive.attribute name="descriptionTitleMessageName" type="java.lang.String" required="false" rtexprvalue="true" description="Description title message code" />
+  <jsp:directive.attribute name="descriptionContentMessageName" type="java.lang.String" required="false" rtexprvalue="true" description="Description title message code" />
+  <c:if test="${not empty actionLink}">
+	<spring:url value="${actionLink}" var="actionLink"/>  
+  </c:if>
+  <c:if test="${empty actionLink}">
+  	  <c:set value="javascript:;" var="actionLink"/>
+  </c:if>
+  
+  <c:if test="${empty subCategoryGroupId}">
+  	<c:set value="0" var="subCategoryGroupId"/>
+  </c:if>
+  
+  <c:if test="${empty categoryGroupType}">
+  	<c:set value="1" var="categoryGroupType" />
+  </c:if>
+  
+  <c:if test="${not empty descriptionTitleMessageCode}">
+  	<spring:message var="descriptionTitle" code="dashboard_item_${descriptionTitleMessageCode}_title_label" arguments="${descriptionTitle}" text="${descriptionTitleMessageName}"/>
+  </c:if>
+  
+  <c:if test="${not empty descriptionContentMessageCode}">
+  	<spring:message var="descriptionContent" code="dashboard_item_${descriptionContentMessageCode}_content_label" arguments="${descriptionContent}" text="${descriptionContentMessageName}"/>
+  </c:if>
+  
+  <spring:url value="${imageLink}" var="imageLink"/>
+
+  <div class="itemBlockElement" data-category="${categoryGroupType}" 
+    data-sub-category="${subCategoryGroupId}" 
+    onclick="${clickActionScript};openPopup('${actionLink}','${descriptionTitle}')">
+	<a href="javascript:;"><img src="${imageLink}" class="blockImage"/></a>
+	<div class="text category${categoryGroupType}">
+		<label class=""><!-- Left border --> </label>
+	    <div class="indent imageTitle">${descriptionTitle}</div>
+		<div class="indent description">${descriptionContent}</div>
+	</div>
+  </div>
+  
+</jsp:root>

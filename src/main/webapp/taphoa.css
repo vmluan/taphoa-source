@@ -1,0 +1,39 @@
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+.khach-hang-no{
+position: relative;
+left: 100%;
+color: red;
+}
+
+.tap-hoa-main-div{
+padding-top: 10px;
+padding-bottom: 40px;
+padding-left: 20px;
+padding-right: 20px;
+margin-bottom: 10px;
+color: inherit;
+background-color: #eee;
+border-style:ridge;
+border-radius: 15px;
+}
+.ban-le-grid{
+padding-left: 15px;
+}
+
+.tap-hoa-aggregate{
+font-weight: bold;
+font-size: 16px;
+}
+
+.tap-hoa-done-button{
+height: 58px;
+width: 100%;
+}
+.tao-hoa-thanh-toan{
+	display:block;
+	overflow: auto;
+}

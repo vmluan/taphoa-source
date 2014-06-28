@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core"  
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:joda="http://www.joda.org/joda/time/tags"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="label_user_info" var="labelUserInfo"/>
+    <spring:message code="label_user_userid" var="labelUserUserID"/>
+    <spring:message code="label_user_usercode" var="labelUserUserCode"/>
+    <spring:message code="label_user_username" var="labelUserUserName"/>
+    <spring:message code="label_user_email" var="labelUserEmail"/>
+    <spring:message code="label_user_mobile" var="labelMobile"/>
+    <spring:message code="label_user_description" var="labelDescription"/>
+    <spring:message code="label_user_active" var="labelActive"/>
+    <spring:message code="label_user_create" var="labelCreate"/>
+    <spring:message code="label_user_createby" var="labelCreateBy"/>
+    <spring:message code="label_user_update" var="labelUpdate"/>
+    <spring:message code="label_user_updateby" var="labelUpdateBy"/>
+    <spring:message code="label_user_avatar" var="labelAvatar"/>
+    <spring:message code="date_format_pattern" var="dateFormatPattern"/>
+    <spring:message code="label_user_edituser" var="labelEditUser"/>
+    
+    <spring:url value="admin/users" var="editUserUrl"/>    
+    <spring:url value="admin/users/photo" var="userAvatarUrl"/>
+
+    <h1>${labelContactInfo}</h1>
+
+    <div id="UserInfo">
+
+        <c:if test="${not empty message}">
+            <div id="message" class="${message.type}">${message.message}</div>
+        </c:if>
+
+        <table>
+            <tr>
+                <td>${labelUserUserCode}</td>
+                <td>${user.usercode}</td>
+            </tr>
+            <tr>
+                <td>${labelUserUserName}</td>
+                <td>${user.username}</td>
+            </tr>
+            <tr>
+                <td>${labelUserEmail}</td>
+                <td>${user.email}</td>
+            </tr>
+            <tr>
+                <td>${labelMobile}</td>
+                <td>${user.mobile}</td>
+            </tr>
+            <tr>
+                <td>${labelDescription}</td>
+                <td>${user.description}</td>
+            </tr>
+            <tr>
+                <td>${labelActive}</td>
+                <td>${user.active}</td>
+            </tr>  
+            <tr>
+                <td>${labelCreate}</td>
+                <td><joda:format value="${user.created}" pattern="${dateFormatPattern}"/></td>
+            </tr>   
+            <tr>
+                <td>${labelUpdate}</td>
+                <td><joda:format value="${user.updated}" pattern="${dateFormatPattern}"/></td>
+            </tr>
+                                                                                                                
+        </table>  <P />       
+       
+        <a href="${user.userid}?form">${labelEditUser}</a>     
+                      
+    </div>
+
+</div>

@@ -1,0 +1,43 @@
+<html xmlns:jsp="http://java.sun.com/JSP/Page" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core" 
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions" 
+      xmlns:tiles="http://tiles.apache.org/tags-tiles" 
+      xmlns:spring="http://www.springframework.org/tags"
+      xmlns:h="http://java.sun.com/jsf/html">  
+
+	<spring:url var="loginUrl" value="/j_spring_security_check" />
+
+    <jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+    
+    <jsp:directive.page contentType="text/html;charset=UTF-8" />  
+    <jsp:directive.page pageEncoding="UTF-8" /> 
+    <head>
+		<link href="../styles/aquarius-theme/stylesheets.css" rel="stylesheet" type="text/css"/>
+    </head>
+	
+  	<body>
+  	<div class="loginBox">  
+  		<div class="loginHead">
+            <img src="../styles/aquarius-theme/img/logo.png" alt="Aquarius -  responsive admin panel" title="Aquarius -  responsive admin panel"/>
+        </div>
+        
+        <form name="loginForm" action="${loginUrl}" method="post">
+           <div class="control-group">
+               <label for="inputEmail">User Name</label>       
+               <input type="text" name="j_username" id="j_username"/>
+           </div>
+           <div class="control-group">
+                <label for="inputPassword">Password</label>                
+                <input type="password" id="j_password" name="j_password"/>                
+            </div>
+            
+            <c:if test="${not empty message}">
+		        <div id="message" class="${message.type}">${message.message}</div>
+		    </c:if>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-block">Sign in</button>
+            </div>
+       </form>
+    </div> 
+  	</body>
+</html>

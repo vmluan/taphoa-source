@@ -1,0 +1,13 @@
+1. Tao domain Unit 
+2. Tao Service Unit
+3. Tao Repository Unit
+4. Tao Service JPA Unit
+
+
+==============Cau truc co ban cua project ===========
+1. what is controller, jsp of default page?
+	- HomeController
+	-view: WEB-INF\views\taphoa.html
+	
+2. default Layout:
+		- WEB-INF\layout\layout.xml: declare name of definition (home for example)

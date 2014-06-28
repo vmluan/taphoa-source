@@ -1,0 +1,56 @@
+ <html xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:spring="http://www.springframework.org/tags">
+	
+ <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+		<!-- Jquery -->
+	<script src="/resources/scripts/jquery/jquery-1.10.2.js" type="text/javascript"><jsp:text/></script>
+	
+	<script src="/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"><jsp:text/></script>
+	<!--JqueryGrid -->
+    <link rel="stylesheet" href="/resources/jqwidgets/styles/jqx.base.css" type="text/css" />
+    
+    <script type="text/javascript" src="/resources/jqwidgets/jqxcore.js"><jsp:text/></script>
+    <script type="text/javascript" src="/resources/jqwidgets/jqxdata.js"><jsp:text/></script> 
+    <script type="text/javascript" src="/resources/jqwidgets/jqxbuttons.js"><jsp:text/></script>
+    <script type="text/javascript" src="/resources/jqwidgets/jqxscrollbar.js"><jsp:text/></script>
+    <script type="text/javascript" src="/resources/jqwidgets/jqxmenu.js"><jsp:text/></script>
+    <script type="text/javascript" src="/resources/jqwidgets/jqxgrid.js"><jsp:text/></script>
+    <script type="text/javascript" src="/resources/jqwidgets/jqxgrid.edit.js"><jsp:text/></script>
+    <script type="text/javascript" src="/resources/jqwidgets/jqxgrid.selection.js"><jsp:text/></script> 
+    <script type="text/javascript" src="/resources/jqwidgets/jqxgrid.aggregates.js"><jsp:text/></script> 
+    <script type="text/javascript" src="/resources/jqwidgets/jqxcheckbox.js"><jsp:text/></script>
+	<script type="text/javascript" src="/resources/jqwidgets/jqxnumberinput.js"><jsp:text/></script>
+	<script type="text/javascript" src="/resources/jqwidgets/jqxinput.js"><jsp:text/></script>
+    <script type="text/javascript" src="/resources/scripts/demos.js"><jsp:text/></script>
+    <script type="text/javascript" src="/resources/QLbanle.js"><jsp:text/></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#gia").jqxNumberInput({ symbol: ' VND', disabled: true,  spinButtons: false, decimalDigits: 0, symbolPosition: 'right'
+				,groupSeparator: ',', spinMode: 'simple', width: '154px' });
+			$("#gia").val(1000);
+			
+			 var dssanpham = new Array("thung bia 333", "thung pepsi", "lon bia 333");
+			$("#ten_san_pham").jqxInput({ minLength: 1, source: dssanpham });
+			$("#ten_san_pham").removeClass();
+			$("#ten_san_pham").addClass("form-control");
+			
+			$("#gia").removeClass();
+
+			$("#gia").removeAttr("style");
+			$("#gia").find("input").removeClass();
+		//	$("#gia input:first").css("border", "1px"); //maybe the jquerygrid always load it functions after this code is called.
+		
+            $("#tien-khach-dua").jqxNumberInput({ symbol: ' VND',  spinButtons: true, decimalDigits: 0, symbolPosition: 'right'
+				,groupSeparator: '.', spinMode: 'simple', width: '335px', spinButtonsStep: 5000, min: 0 });
+            $("#tien-thoi-lai").jqxNumberInput({ symbol: ' VND',  spinButtons: false, decimalDigits: 0, symbolPosition: 'right'
+				,groupSeparator: '.', spinMode: 'simple', width: '335px', min: 0, disabled:true});		
+
+        });
+    </script>
+    
+ </html>   
